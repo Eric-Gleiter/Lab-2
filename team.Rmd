@@ -41,3 +41,13 @@ counts <- table(choco$Company.Location, choco$Rating)
 counts
 ```
 The top three countries are The USA, Canada, and France, then looking at the table we can see all three countires have the most ratings at 3.5 and the a "normalish" spread about that point. Except for the us is has two peaks in its data, it also has the most data points which would be the cause.
+
+Question 4)
+Which company produces the standard highest rated chocolate?
+
+Question 5)
+```{r}
+counts <- table(choco$Company, choco$Rating)
+counts
+```
+based on the table we see that valrhona and soltice have a hogh rating as they have a lot of ratings in the higher portion of the ratings table 

@@ -393,12 +393,952 @@ locations &lt;- choco$Company.Location
 numChoco &lt;- length(ratings)
 numChoco</code></pre>
 <pre><code>## [1] 1852</code></pre>
-<p>There are 1852 chocolate bars that have been rated Question 2)</p>
+<p>There are 1852 chocolate bars that have been rated</p>
+<p>Question 2)</p>
 <pre class="r"><code>counts&lt;-table(choco$Review.Date)
 plot(date,ratings)</code></pre>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABUAAAAPACAMAAADDuCPrAAAA21BMVEUAAAAAADoAAGYAOjoAOmYAOpAAZmYAZrY6AAA6OgA6Ojo6OmY6OpA6ZmY6ZpA6ZrY6kJA6kLY6kNtmAABmADpmOgBmOjpmZjpmZmZmZpBmkJBmkLZmkNtmtrZmtttmtv+QOgCQOjqQZgCQZjqQZmaQkDqQkLaQtraQttuQtv+Q2/+2ZgC2Zjq2kDq2kGa2kLa2tpC2tra2ttu227a229u22/+2///bkDrbkGbbtmbbtpDbtrbb25Db27bb29vb2//b/7bb////tmb/25D/27b/29v//7b//9v///98dr97AAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO3de2MbVZ7n4XIIixumYTfZ0GGZJdmBGRiSYTq9QAgsMDEB6/2/otXFlmVLEaqv6nKO6nn+IIoo/XxUsj7RXc0MgEgz9gIAaiWgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQiVHdAGoDPdJ6rziR0a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SEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEdOdWKz0todbhwB0CumujHjtU73DgLgHdsU1z50CnC6h1OLBFQLc3aW4Odv/zax0ObKsooH88bHa5932bxR0S0Fabt1PvcGCbgO7bpK7GCSgMrKKAzt48ahnQXZv/6U+pt3ECCgOrKaCzy6dN86DF9gIK9KmqgC4L+uSYAQIKdKeugC4eB231mOddAgp0p7KAzi7a3Ym/y8uYgO7UFtD5nfhjboJ6IT3QndoCOvvt8eN/z0/trZxAd6oL6HF8mAjQHQEFCAkoQEhAAUICChASUICQgAKEBBQgJKAAIQEFCAkoQEhAAUICChASUICQgAKEBBQgNLmAAnSn80Z1PbBLY+9s4LR03qiuB46i3vv6Vj68elde8dLrXfl+p3G26r10rHx49a684qXXu/L9TuNs1XvpWPnw6l15xUuvd+X7ncbZqvfSsfLh1bvyipde78r3O42zVe+lY+XDq3flFS+93pXvdxpnq95Lx8qHV+/KK156vSvf7zTOVr2XjpUPr96VV7z0ele+32mcrXovHSsfXr0rr3jp9a58v9M4W/VeOlY+vHpXXvHS6135fqdxtuq9dKx8ePWuvOKl17vy/U7jbNV76Vj58OpdecVLr3fl+53G2ar30rHy4dW78oqXXu/K9zuNs1XvpWPlw6t35RUvvd6V73caZ6veS8fKh1fvyiteer0r3+80zla9l46VD6/elVe89HpXvt9pnK16Lx0rH169K6946fWufL/TOFv1XjpWPrx6V17x0utd+X6ncbbqvXSsfHj1rrzipde78v1O42zVe+lY+fDqXXnFS6935fud6NkC6J+AAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCBUSUAvv3m/aZp3Pvzu5qg3n583zdn+Yy5fLU72/mevh1vpXeHKf946ZnAHrXzhj4f3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" width="672" /></p>
 <pre class="r"><code>barplot(counts)</code></pre>
 <p><img src="data:image/png;base64,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" width="672" /> The number of ratings increased with year up until 2016 when it started to drop.</p>
+<p>Question 3)</p>
+<p>Question 3</p>
+<pre class="r"><code>counts &lt;- table(choco$Company.Location, choco$Rating)
+counts</code></pre>
+<pre><code>##                    
+##                       1 1.5 1.75   2 2.25 2.5 2.75   3 3.25 3.5 3.75   4   5
+##   Amsterdam           0   0    0   0    0   0    0   2    1   2    1   0   0
+##   Argentina           0   0    0   0    0   0    2   0    2   4    1   0   0
+##   Australia           0   0    0   0    0   3    5   5   10  12   11   4   0
+##   Austria             0   0    0   0    0   0    4   7    4   8    4   0   0
+##   Belgium             3   1    0   1    0   1    5   8    2   9    4   6   0
+##   Bolivia             0   0    0   0    0   0    1   0    0   0    1   0   0
+##   Brazil              0   0    0   0    0   0    2   1    5   6    3   1   0
+##   Canada              0   0    0   2    0   3   18  19   28  27   25  10   0
+##   Chile               0   0    0   0    0   0    0   0    0   0    2   0   0
+##   Colombia            0   0    0   1    0   1    4   5    3   5    3   1   0
+##   Costa Rica          0   0    0   0    0   1    1   2    2   3    0   0   0
+##   Czech Republic      0   0    0   0    0   0    1   0    0   0    0   0   0
+##   Denmark             0   0    0   0    0   1    0   2    6   5    2   0   0
+##   Domincan Republic   0   0    0   0    0   0    0   2    2   1    0   0   0
+##   Ecuador             0   2    0   3    0   7    8  10    9  11    2   3   0
+##   Eucador             0   0    0   0    0   0    0   1    0   0    0   0   0
+##   Fiji                0   0    0   0    0   0    1   0    1   2    0   0   0
+##   Finland             0   0    0   0    0   0    0   1    0   1    0   0   0
+##   France              0   2    0   7    0   6   20  28   20  36   16  23   0
+##   Germany             0   1    0   0    0   3    2   9    7   8    5   1   0
+##   Ghana               0   0    0   0    0   0    1   0    0   0    0   0   0
+##   Grenada             0   0    0   0    0   1    1   0    1   0    0   0   0
+##   Guatemala           0   0    0   0    0   0    1   2    3   1    2   1   0
+##   Honduras            0   0    0   0    0   0    1   1    2   2    0   0   0
+##   Hungary             0   0    0   0    1   3    1   1    7   6    4   0   0
+##   Iceland             0   0    0   0    0   0    0   1    0   1    1   0   0
+##   India               0   0    0   0    0   1    1   0    0   0    0   0   0
+##   Ireland             0   0    0   0    0   1    2   0    1   0    0   0   0
+##   Israel              0   0    0   0    0   1    2   0    0   5    1   0   0
+##   Italy               0   1    0   2    1   3    1  17   10  16    9   7   2
+##   Japan               0   0    0   0    1   1    1   6    4   4    0   0   0
+##   Lithuania           0   0    0   0    0   1    1   1    1   0    2   0   0
+##   Madagascar          0   0    0   0    0   2    4   2    3   4    1   1   0
+##   Martinique          0   0    0   0    0   0    1   0    0   0    0   0   0
+##   Mexico              0   0    0   1    0   0    1   2    0   0    0   0   0
+##   Netherlands         0   0    0   0    0   0    0   0    0   4    0   0   0
+##   New Zealand         0   0    0   0    0   1    4   1    4   6    1   0   0
+##   Niacragua           0   0    0   0    0   0    1   0    0   0    0   0   0
+##   Nicaragua           0   0    0   0    0   0    2   1    2   0    0   0   0
+##   Peru                0   1    0   0    1   2    3   4    3   3    0   0   0
+##   Philippines         0   0    0   0    0   0    0   0    0   1    0   0   0
+##   Poland              0   0    0   0    0   1    0   0    2   3    2   0   0
+##   Portugal            0   0    0   0    0   1    1   1    0   0    0   0   0
+##   Puerto Rico         0   0    0   0    0   2    2   0    0   0    0   0   0
+##   Russia              0   0    0   0    0   0    0   1    1   1    0   0   0
+##   Sao Tome            1   0    0   0    0   0    0   1    0   0    1   1   0
+##   Scotland            0   0    0   0    0   1    2   1    1   0    4   1   0
+##   Singapore           0   0    0   0    0   0    1   0    0   1    1   0   0
+##   South Africa        0   0    0   0    0   2    0   1    0   0    0   0   0
+##   South Korea         0   0    0   0    0   0    1   0    3   1    0   0   0
+##   Spain               0   0    0   0    0   2    3   4    5   7    2   3   0
+##   St. Lucia           0   0    0   0    0   0    1   0    1   0    0   0   0
+##   Suriname            0   0    0   0    0   0    0   0    1   0    0   0   0
+##   Sweden              0   0    0   0    0   0    1   3    0   1    0   0   0
+##   Switzerland         0   0    0   1    0   0    4   9    6   6    6   6   0
+##   U.A.E.              0   0    0   0    0   0    0   1    1   2    0   0   0
+##   U.K.                0   0    3   0    3   8   25  18   12  15   10   4   0
+##   U.S.A.              0   2    0  14    7  65  117 163  135 166   92  26   0
+##   Venezuela           0   0    0   0    0   3    3   3    3   4    4   0   0
+##   Vietnam             0   0    0   0    0   0    0   2    1   7    1   0   0
+##   Wales               0   0    0   0    0   0    1   0    0   0    0   0   0</code></pre>
+<p>The top three countries are The USA, Canada, and France, then looking at the table we can see all three countires have the most ratings at 3.5 and the a “normalish” spread about that point. Except for the us is has two peaks in its data, it also has the most data points which would be the cause.</p>
+<p>Question 4) Which company produces the standard highest rated chocolate?</p>
+<p>Question 5)</p>
+<pre class="r"><code>counts &lt;- table(choco$Company, choco$Rating)
+counts</code></pre>
+<pre><code>##                                          
+##                                            1 1.5 1.75  2 2.25 2.5 2.75  3 3.25
+##   A. Morin                                 0   0    0  0    0   0    4  3    3
+##   Acalli                                   0   0    0  0    0   0    0  0    0
+##   Adi aka Fijiana (Easy In Ltd)            0   0    0  0    0   0    1  0    1
+##   Aequare (Gianduja)                       0   0    0  0    0   0    1  1    0
+##   Ah Cacao                                 0   0    0  0    0   0    0  1    0
+##   Akesson&#39;s (Pralus)                       0   0    0  0    0   0    2  0    0
+##   Alain Ducasse                            0   0    0  0    0   2    2  1    0
+##   Alexandre                                0   0    0  0    0   0    0  0    0
+##   Altus aka Cao Artisan                    0   0    0  0    0   3    2  3    2
+##   Amano                                    0   0    0  0    0   0    1  3    0
+##   Amatller (Simon Coll)                    0   0    0  0    0   0    2  2    0
+##   Amazing Cacao                            0   0    0  0    0   0    0  1    0
+##   Amazona                                  0   0    0  0    0   0    0  0    1
+##   Ambrosia                                 0   0    0  0    0   0    0  1    4
+##   Amedei                                   0   0    0  0    0   0    0  2    0
+##   AMMA                                     0   0    0  0    0   0    1  0    1
+##   Anahata                                  0   0    0  0    0   0    0  1    0
+##   Animas                                   0   0    0  0    0   0    0  0    0
+##   Ara                                      0   0    0  0    0   1    1  2    0
+##   Arete                                    0   0    0  0    0   0    1  0    5
+##   Artisan du Chocolat                      0   0    2  0    0   1    2  2    4
+##   Artisan du Chocolat (Casa Luker)         0   0    0  0    0   0    1  0    0
+##   Askinosie                                0   0    0  0    0   1    0  1    0
+##   Bahen &amp; Co.                              0   0    0  0    0   2    0  1    1
+##   Bakau                                    0   0    0  0    0   0    1  0    0
+##   Bar Au Chocolat                          0   0    0  0    0   0    0  0    1
+##   Baravelli&#39;s                              0   0    0  0    0   0    1  0    0
+##   Batch                                    0   0    0  0    0   0    0  0    1
+##   Beau Cacao                               0   0    0  0    0   0    0  1    1
+##   Beehive                                  0   0    0  0    0   0    4  0    0
+##   Belcolade                                0   0    0  0    0   0    3  0    0
+##   Bellflower                               0   0    0  0    0   0    0  0    1
+##   Belyzium                                 0   0    0  0    0   0    1  1    0
+##   Benoit Nihant                            0   0    0  0    0   0    0  0    0
+##   Bernachon                                0   0    0  0    0   0    1  0    0
+##   Beschle (Felchlin)                       0   0    0  0    0   0    0  2    2
+##   Bisou                                    0   0    0  0    0   3    0  0    1
+##   Bittersweet Origins                      0   0    0  0    0   0    1  5    2
+##   Black Mountain                           0   0    0  0    0   0    2  1    0
+##   Black River (A. Morin)                   0   0    0  0    0   0    1  0    0
+##   Blanxart                                 0   0    0  0    0   0    1  0    0
+##   Blue Bandana                             0   0    0  0    0   0    1  1    0
+##   Boho                                     0   0    0  0    0   0    1  0    0
+##   Bonnat                                   0   1    0  0    0   1    1  4    3
+##   Bouga Cacao (Tulicorp)                   0   1    0  0    0   0    0  0    1
+##   Bowler Man                               0   0    0  0    0   0    2  0    0
+##   Brasstown                                0   0    0  0    0   0    0  0    1
+##   Brasstown aka It&#39;s Chocolate             0   0    0  0    0   0    0  1    1
+##   Brazen                                   0   0    0  0    0   0    1  1    3
+##   Breeze Mill                              0   0    0  0    0   0    0  1    0
+##   Bright                                   0   0    0  0    0   0    1  1    0
+##   Britarev                                 0   0    0  0    0   0    0  0    1
+##   Bronx Grrl Chocolate                     0   0    0  0    0   0    1  0    0
+##   Burnt Fork Bend                          0   0    0  0    0   1    0  0    3
+##   C-Amaro                                  0   0    0  0    1   2    0  2    0
+##   Cacao Arabuco                            0   0    0  0    0   1    0  0    0
+##   Cacao Atlanta                            0   0    0  0    1   2    1  0    0
+##   Cacao Barry                              0   0    0  2    0   0    0  2    0
+##   Cacao de Origen                          0   0    0  0    0   1    0  0    2
+##   Cacao de Origin                          0   0    0  0    0   0    0  0    1
+##   Cacao Hunters                            0   0    0  0    0   0    1  0    1
+##   Cacao Market                             0   0    0  0    0   0    0  0    0
+##   Cacao Prieto                             0   0    0  0    0   0    0  1    1
+##   Cacao Sampaka                            0   0    0  0    0   0    0  0    1
+##   Cacao Store                              0   0    0  0    0   0    0  1    1
+##   Cacaosuyo (Theobroma Inversiones)        0   0    0  0    0   0    0  0    1
+##   Cacaoyere (Ecuatoriana)                  0   1    0  0    0   1    0  0    0
+##   Callebaut                                1   0    0  0    0   0    1  0    0
+##   Cao                                      0   0    0  0    0   1    1  2    1
+##   Caoni (Tulicorp)                         0   0    0  1    0   1    1  1    1
+##   Captain Pembleton                        0   0    0  0    0   0    0  0    0
+##   Caribeans                                0   0    0  0    0   0    1  1    1
+##   Carlotta Chocolat                        0   0    0  0    0   0    0  1    2
+##   Castronovo                               0   0    0  0    0   1    2  2    3
+##   Cello                                    0   0    0  0    0   1    2  1    0
+##   Cemoi                                    0   0    0  0    0   0    1  0    0
+##   Chaleur B                                0   0    0  0    0   0    1  0    0
+##   Charm School                             0   0    0  0    0   0    0  0    1
+##   Chchukululu (Tulicorp)                   0   0    0  0    0   0    1  1    0
+##   Chequessett                              0   0    0  0    0   0    0  0    0
+##   Chloe Chocolat                           0   0    0  0    0   0    0  0    0
+##   Chocablog                                0   0    0  0    0   0    0  0    1
+##   Choco Del Sol                            0   0    0  0    0   0    0  1    1
+##   Choco Dong                               0   0    0  0    0   0    1  0    0
+##   Chocola&#39;te                               0   0    0  0    0   0    0  0    0
+##   Chocolarder                              0   0    0  0    0   2    1  0    0
+##   Chocolate Alchemist-Philly               0   0    0  0    0   2    0  0    0
+##   Chocolate Con Amor                       0   0    0  0    0   1    2  3    1
+##   Chocolate Conspiracy                     0   0    0  0    0   0    1  0    0
+##   Chocolate Makers                         0   0    0  0    0   0    0  0    1
+##   Chocolate Tree, The                      0   0    0  0    0   1    1  0    1
+##   Chocolats Privilege                      0   0    0  0    0   1    0  0    0
+##   ChocoReko                                0   0    0  0    0   0    0  1    0
+##   Chocosol                                 0   0    0  0    0   0    0  0    1
+##   Chocovic                                 0   0    0  0    0   2    0  1    3
+##   Chocovivo                                0   0    0  0    0   2    0  0    0
+##   Choklat                                  0   0    0  0    0   1    1  3    0
+##   Chokolat Elot (Girard)                   0   0    0  0    0   0    1  0    0
+##   Choocsol                                 0   0    0  0    0   0    0  0    1
+##   Christopher Morel (Felchlin)             0   0    0  0    0   0    0  0    0
+##   Chuao Chocolatier                        0   0    0  0    0   0    0  1    0
+##   Chuao Chocolatier (Pralus)               0   0    0  0    0   0    1  0    0
+##   Claudio Corallo                          1   0    0  0    0   0    0  1    0
+##   Cloudforest                              0   0    0  0    0   0    0  0    0
+##   Coleman &amp; Davis                          0   0    0  0    0   0    0  1    0
+##   Compania de Chocolate (Salgado)          0   0    0  0    0   0    2  0    2
+##   Condor                                   0   0    0  0    0   0    0  0    0
+##   Confluence                               0   0    0  0    0   0    1  0    0
+##   Coppeneur                                0   1    0  0    0   1    0  6    5
+##   Cote d&#39; Or (Kraft)                       1   0    0  0    0   0    0  0    0
+##   Cravve                                   0   0    0  0    0   1    1  0    4
+##   Creo                                     0   0    0  0    0   0    0  0    1
+##   Daintree                                 0   0    0  0    0   0    1  0    1
+##   Dalloway                                 0   0    0  0    0   0    1  0    0
+##   Damson                                   0   0    0  0    1   0    1  1    0
+##   Dandelion                                0   0    0  0    0   0    2  2    5
+##   Danta                                    0   0    0  0    0   0    0  2    3
+##   DAR                                      0   0    0  0    0   0    1  1    1
+##   Dark Forest                              0   0    0  0    0   0    0  2    3
+##   Davis                                    0   0    0  0    0   1    2  0    1
+##   De Mendes                                0   0    0  0    0   0    0  0    0
+##   De Villiers                              0   0    0  0    0   1    0  1    0
+##   Dean and Deluca (Belcolade)              0   0    0  0    0   1    0  5    0
+##   Debauve &amp; Gallais (Michel Cluizel)       0   0    0  0    0   0    0  1    0
+##   Desbarres                                0   0    0  0    0   1    0  0    0
+##   DeVries                                  0   0    0  0    0   0    1  0    0
+##   Dick Taylor                              0   0    0  0    0   0    4  2    2
+##   Doble &amp; Bignall                          0   0    0  0    0   0    0  1    2
+##   Dole (Guittard)                          0   0    0  0    0   0    0  0    0
+##   Dolfin (Belcolade)                       0   1    0  0    0   0    0  1    0
+##   Domori                                   0   0    0  0    0   0    0  5    3
+##   Dormouse                                 0   0    0  0    0   1    3  0    0
+##   Duffy&#39;s                                  0   0    0  0    0   1    1  1    1
+##   Dulcinea                                 0   0    0  0    0   0    0  0    1
+##   Durand                                   0   0    0  0    0   0    1  0    0
+##   Durci                                    0   0    0  0    0   0    0  0    2
+##   East Van Roasters                        0   0    0  0    0   0    0  0    1
+##   Eau de Rose                              0   0    0  0    0   0    0  0    2
+##   Eclat (Felchlin)                         0   0    0  0    0   0    1  0    0
+##   Edelmond                                 0   0    0  0    0   0    0  1    0
+##   El Ceibo                                 0   0    0  0    0   0    1  0    0
+##   El Rey                                   0   0    0  0    0   2    2  2    0
+##   Emerald Estate                           0   0    0  0    0   0    1  0    1
+##   Emily&#39;s                                  0   0    0  0    0   0    0  1    0
+##   ENNA                                     0   0    0  0    0   0    0  0    1
+##   Enric Rovira (Claudio Corallo)           0   0    0  0    0   0    0  0    1
+##   Erithaj (A. Morin)                       0   0    0  0    0   0    0  1    2
+##   Escazu                                   0   0    0  1    0   0    2  1    0
+##   Ethel&#39;s Artisan (Mars)                   0   0    0  0    0   4    1  0    0
+##   Ethereal                                 0   0    0  0    0   0    0  1    0
+##   Fearless (AMMA)                          0   0    0  0    0   0    1  0    0
+##   Feitoria Cacao                           0   0    0  0    0   1    1  1    0
+##   Felchlin                                 0   0    0  1    0   0    0  3    0
+##   Finca                                    0   0    0  0    1   1    0  1    1
+##   Forever Cacao                            0   0    0  0    0   0    1  0    0
+##   Forteza (Cortes)                         0   0    0  0    0   0    2  0    0
+##   Fossa                                    0   0    0  0    0   0    1  0    0
+##   Franceschi                               0   0    0  0    0   0    0  0    0
+##   Frederic Blondeel                        0   0    0  0    0   0    0  1    0
+##   French Broad                             0   0    0  1    0   1    0  1    1
+##   Fresco                                   0   0    0  0    0   0    3  4    5
+##   Fresh Coast                              0   0    0  0    0   0    0  0    0
+##   Fresh Coast aka Just Good Choc.          0   0    0  0    0   0    0  0    0
+##   Friis Holm                               0   0    0  0    0   0    0  0    0
+##   Friis Holm (Bonnat)                      0   0    0  0    0   0    0  1    6
+##   Fruition                                 0   0    0  0    0   1    0  3    1
+##   Garden Island                            0   0    0  0    0   1    0  0    0
+##   Georgia Ramon                            0   0    0  0    0   0    0  0    1
+##   Glennmade                                0   0    0  0    0   0    0  1    0
+##   Goodnow Farms                            0   0    0  0    0   0    1  0    2
+##   Grand Place                              0   0    0  0    0   0    0  1    0
+##   Green &amp; Black&#39;s (ICAM)                   0   0    0  0    0   1    0  0    0
+##   Green Bean to Bar                        0   0    0  0    0   0    0  0    0
+##   Grenada Chocolate Co.                    0   0    0  0    0   1    1  0    1
+##   Guido Castagna                           0   0    0  0    0   0    0  4    1
+##   Guittard                                 0   0    0  0    0   1    3  7    3
+##   Habitual                                 0   0    0  1    0   0    3  2    2
+##   Hachez                                   0   0    0  0    0   1    0  0    0
+##   Hacienda El Castillo                     0   0    0  0    0   0    1  1    0
+##   Haigh                                    0   0    0  0    0   0    0  1    0
+##   Harper Macaw                             0   0    0  0    0   0    0  1    1
+##   Heilemann                                0   0    0  0    0   0    1  0    0
+##   Heirloom Cacao Preservation (Brasstown)  0   0    0  0    0   0    0  0    1
+##   Heirloom Cacao Preservation (Fruition)   0   0    0  0    0   0    0  0    0
+##   Heirloom Cacao Preservation (Guittard)   0   0    0  0    0   0    0  1    0
+##   Heirloom Cacao Preservation (Manoa)      0   0    0  0    0   0    0  0    0
+##   Heirloom Cacao Preservation (Millcreek)  0   0    0  0    0   0    0  0    0
+##   Heirloom Cacao Preservation (Mindo)      0   0    0  0    0   0    0  0    0
+##   Heirloom Cacao Preservation (Zokoko)     0   0    0  0    0   0    0  0    0
+##   hello cocoa                              0   0    0  0    0   0    1  0    0
+##   hexx                                     0   0    0  0    0   0    1  2    2
+##   Hogarth                                  0   0    0  0    0   0    2  0    1
+##   Hoja Verde (Tulicorp)                    0   0    0  1    0   1    0  1    1
+##   Holy Cacao                               0   0    0  0    0   1    2  0    0
+##   Honest                                   0   0    0  0    0   1    0  0    0
+##   Hotel Chocolat                           0   0    1  0    0   0    1  0    0
+##   Hotel Chocolat (Coppeneur)               0   0    0  0    0   2    5  8    1
+##   Hummingbird                              0   0    0  0    0   0    0  3    1
+##   Idilio (Felchlin)                        0   0    0  0    0   0    0  0    1
+##   Indah                                    0   0    0  0    0   1    0  0    0
+##   Indaphoria                               0   0    0  0    0   0    1  0    1
+##   Indi                                     0   0    0  0    0   0    0  1    0
+##   INDI                                     0   0    0  0    0   0    0  0    1
+##   iQ Chocolate                             0   0    0  0    0   0    1  1    0
+##   Isidro                                   0   0    0  0    1   0    0  0    2
+##   Izard                                    0   0    0  0    0   0    1  0    0
+##   Jacque Torres                            0   0    0  1    0   0    0  0    0
+##   Johnny Iuzzini                           0   0    0  0    0   0    0  2    0
+##   Jordis                                   0   0    0  0    0   0    1  0    0
+##   K&#39;ul                                     0   0    0  0    0   0    1  0    1
+##   Kah Kow                                  0   0    0  0    0   0    0  1    2
+##   Kakao                                    0   0    0  0    0   1    0  0    0
+##   Kallari (Ecuatoriana)                    0   0    0  0    0   2    2  3    0
+##   Kaoka (Cemoi)                            0   0    0  0    0   0    2  0    0
+##   Kerchner                                 0   0    0  0    0   0    0  0    0
+##   Ki&#39; Xocolatl                             0   0    0  1    0   0    0  0    0
+##   Kiskadee                                 0   0    0  0    0   0    0  1    0
+##   Krak                                     0   0    0  0    0   0    0  2    0
+##   Kto                                      0   0    0  0    0   1    1  1    4
+##   Kyya                                     0   0    0  0    0   2    0  2    0
+##   L&#39;Amourette                              0   0    0  0    0   0    0  3    0
+##   L.A. Burdick (Felchlin)                  0   0    0  0    0   0    0  2    2
+##   La Chocolaterie Nanairo                  0   0    0  0    1   1    0  2    0
+##   La Maison du Chocolat (Valrhona)         0   0    0  0    0   0    1  1    3
+##   La Oroquidea                             0   0    0  0    0   1    0  0    0
+##   La Pepa de Oro                           0   0    0  0    0   0    0  0    1
+##   Laia aka Chat-Noir                       0   0    0  0    0   0    4  2    2
+##   Lajedo do Ouro                           0   0    0  0    0   0    0  0    0
+##   Lake Champlain (Callebaut)               0   0    0  0    0   1    0  0    0
+##   Landmark (Amano)                         0   0    0  0    0   0    0  0    0
+##   Letterpress                              0   0    0  0    0   0    0  1    4
+##   Levy                                     0   0    0  0    0   0    0  0    0
+##   Lilla                                    0   0    0  0    0   0    0  1    0
+##   Lillie Belle                             0   0    0  0    0   0    1  1    0
+##   Lindt &amp; Sprungli                         0   0    0  0    0   0    0  1    0
+##   Loiza                                    0   0    0  0    0   1    0  0    0
+##   Lonohana                                 0   0    0  0    0   0    0  2    1
+##   Love Bar                                 0   0    0  1    0   0    0  0    0
+##   Luisa Abram                              0   0    0  0    0   0    0  0    1
+##   Luker                                    0   0    0  0    0   0    1  2    0
+##   Machu Picchu Trading Co.                 0   1    0  0    1   0    0  0    0
+##   Madecasse (Cinagra)                      0   0    0  0    0   0    0  0    0
+##   Madre                                    0   0    0  0    0   1    5  0    2
+##   Maglio                                   0   0    0  1    0   0    0  1    1
+##   Majani                                   0   0    0  1    0   0    0  0    0
+##   Malagasy (Chocolaterie Robert)           0   0    0  0    0   0    1  0    0
+##   Malagos                                  0   0    0  0    0   0    0  0    0
+##   Malie Kai (Guittard)                     0   0    0  0    0   0    1  0    0
+##   Malmo                                    0   0    0  0    0   0    0  1    0
+##   Mana                                     0   0    0  0    0   2    1  0    0
+##   Manifesto Cacao                          0   0    0  0    0   0    1  0    0
+##   Manoa                                    0   0    0  0    0   0    1  1    2
+##   Manufaktura Czekolady                    0   0    0  0    0   0    0  0    2
+##   Map Chocolate                            0   0    0  0    0   0    2  2    1
+##   Marana                                   0   0    0  0    0   0    1  2    0
+##   Marigold&#39;s Finest                        0   0    0  0    0   0    0  0    1
+##   Marou                                    0   0    0  0    0   0    0  1    1
+##   Mars                                     0   0    0  0    0   0    0  2    1
+##   Marsatta                                 0   0    0  0    1   1    0  0    0
+##   Martin Mayer                             0   0    0  0    0   0    1  1    1
+##   Mast Brothers                            0   0    0  0    0   1    4  5    3
+##   Matale                                   0   0    0  0    0   0    0  0    0
+##   Maverick                                 0   0    0  0    0   0    0  0    3
+##   Mayacama                                 0   0    0  0    0   0    0  1    0
+##   Meadowlands                              0   0    0  0    0   1    1  2    0
+##   Menakao (aka Cinagra)                    0   0    0  0    0   2    0  0    0
+##   Mesocacao                                0   0    0  0    0   0    1  1    2
+##   Metiisto                                 0   0    0  0    0   0    0  1    0
+##   Metropolitan                             0   0    0  0    0   0    0  0    0
+##   Michel Cluizel                           0   0    0  3    0   0    0  1    0
+##   Middlebury                               0   1    0  1    0   2    0  0    2
+##   Millcreek Cacao Roasters                 0   0    0  0    0   1    0  0    0
+##   Mindo                                    0   0    0  0    0   0    2  0    0
+##   Minimal                                  0   0    0  0    0   0    0  0    0
+##   Mirzam                                   0   0    0  0    0   0    0  1    1
+##   Mission                                  0   0    0  0    0   0    0  0    0
+##   Mita                                     0   0    0  0    0   1    0  0    0
+##   Moho                                     0   0    0  0    0   0    1  1    1
+##   Molucca                                  0   0    0  0    0   0    1  1    1
+##   Momotombo                                0   0    0  0    0   0    2  0    1
+##   Monarque                                 0   0    0  0    0   0    0  0    0
+##   Monsieur Truffe                          0   0    0  0    0   0    0  0    1
+##   Montecristi                              0   0    0  0    0   0    0  0    1
+##   Muchomas (Mesocacao)                     0   0    0  0    0   0    0  0    0
+##   Mutari                                   0   0    0  0    0   0    3  1    0
+##   Naðve                                    0   0    0  0    0   0    1  1    1
+##   Nahua                                    0   0    0  0    0   1    0  1    0
+##   Naive                                    0   0    0  0    0   1    0  0    0
+##   Nanea                                    0   0    0  0    0   0    0  0    0
+##   Nathan Miller                            0   0    0  0    1   2    0  0    0
+##   Neuhaus (Callebaut)                      1   0    0  1    0   1    1  1    0
+##   Nibble                                   0   0    0  0    1   0    1  2    0
+##   Night Owl                                0   0    0  0    0   0    1  0    0
+##   Noble Bean aka Jerjobo                   0   0    0  0    0   0    0  2    1
+##   Noir d&#39; Ebine                            0   0    0  0    0   0    0  2    0
+##   Nova Monda                               0   0    0  0    0   0    1  1    1
+##   Nuance                                   0   0    0  0    0   0    1  1    0
+##   Nugali                                   0   0    0  0    0   0    0  0    0
+##   Oakland Chocolate Co.                    0   0    0  0    0   1    0  0    0
+##   Obolo                                    0   0    0  0    0   0    0  0    0
+##   Ocelot                                   0   0    0  0    0   0    0  0    0
+##   Ocho                                     0   0    0  0    0   0    2  1    1
+##   Ohiyo                                    0   0    0  0    0   0    1  1    0
+##   Oialla by Bojessen (Malmo)               0   0    0  0    0   0    0  0    0
+##   Olive and Sinclair                       0   0    0  0    0   0    1  3    0
+##   Olivia                                   0   0    0  1    0   0    2  1    0
+##   Omanhene                                 0   0    0  0    0   0    1  0    0
+##   Omnom                                    0   0    0  0    0   0    0  1    0
+##   organicfair                              0   0    0  0    0   0    3  2    0
+##   Original Beans (Felchlin)                0   0    0  0    0   0    1  2    2
+##   Original Hawaiin Chocolate Factory       0   0    0  0    0   0    0  2    0
+##   Orquidea                                 0   0    0  0    0   0    0  2    0
+##   Pacari                                   0   0    0  1    0   1    2  1    1
+##   Palette de Bine                          0   0    0  0    0   0    5  1    2
+##   Pangea                                   0   0    0  0    0   0    0  1    0
+##   Park 75                                  0   0    0  0    0   0    0  0    0
+##   Parliament                               0   0    0  0    0   0    0  1    1
+##   Pascha                                   0   0    0  0    0   1    1  0    0
+##   Patric                                   0   0    0  0    0   0    0  0    0
+##   Paul Young                               0   0    0  0    1   0    1  0    0
+##   Peppalo                                  0   0    0  0    0   0    0  1    0
+##   Pierre Marcolini                         0   0    0  0    0   0    0  5    2
+##   Pinellas                                 0   0    0  0    0   1    0  0    0
+##   Pitch Dark                               0   0    0  0    0   2    3  0    3
+##   Pomm (aka Dead Dog)                      0   0    0  0    0   1    1  0    0
+##   Potomac                                  0   0    0  0    0   0    1  1    0
+##   Pralus                                   0   0    0  2    0   0    0  7    3
+##   Pump Street Bakery                       0   0    0  0    0   0    3  1    1
+##   Pura Delizia                             0   0    0  0    0   0    1  0    2
+##   Q Chocolate                              0   0    0  0    0   0    1  1    3
+##   Quetzalli (Wolter)                       0   0    0  0    0   0    1  1    0
+##   Raaka                                    0   0    0  0    0   0    1  1    1
+##   Rain Republic                            0   0    0  0    0   0    1  0    0
+##   Rancho San Jacinto                       0   0    0  0    0   0    0  1    0
+##   Ranger                                   0   0    0  0    0   1    0  0    1
+##   Raoul Boulanger                          0   0    0  0    0   0    0  0    1
+##   Raw Cocoa                                0   0    0  0    0   1    0  0    0
+##   Republica del Cacao (aka Confecta)       0   0    0  0    0   1    0  1    1
+##   Ritual                                   0   0    0  0    0   0    0  1    1
+##   Roasting Masters                         0   0    0  0    0   0    0  0    3
+##   Robert (aka Chocolaterie Robert)         0   0    0  0    0   0    0  0    2
+##   Rococo (Grenada Chocolate Co.)           0   0    0  0    0   0    0  0    0
+##   Rogue                                    0   0    0  0    0   0    3  2    1
+##   Rozsavolgyi                              0   0    0  0    1   3    1  0    0
+##   Ruket                                    0   0    0  0    0   1    0  0    0
+##   S.A.I.D.                                 0   1    0  0    0   0    0  1    0
+##   Sacred                                   0   0    0  0    0   0    1  0    1
+##   Salgado                                  0   0    0  0    0   0    0  0    0
+##   San Jose                                 0   0    0  0    0   0    0  0    1
+##   Santander (Compania Nacional)            0   0    0  1    0   0    1  2    0
+##   Santome                                  0   0    0  0    0   0    1  0    0
+##   Scharffen Berger                         0   0    0  3    0   0    0  5    0
+##   Seaforth                                 0   0    0  0    0   0    2  0    0
+##   Shark&#39;s                                  0   0    0  1    0   1    0  0    0
+##   Shark Mountain                           0   0    0  0    0   0    1  1    2
+##   Shattel                                  0   0    0  0    0   0    0  0    1
+##   Shattell                                 0   0    0  0    0   0    0  0    0
+##   Sibu                                     0   0    0  0    0   0    0  0    1
+##   Sibu Sura                                0   0    0  0    0   1    0  0    0
+##   Silvio Bessone                           0   0    0  0    0   0    0  2    2
+##   Sirene                                   0   0    0  0    0   0    0  3    2
+##   Sjolinds                                 0   0    0  0    0   0    1  1    0
+##   Smooth Chocolator, The                   0   0    0  0    0   0    1  2    2
+##   Snake &amp; Butterfly                        0   1    0  0    0   0    0  1    1
+##   Soklet                                   0   0    0  0    0   0    1  0    0
+##   Sol Cacao                                0   0    0  0    0   0    0  1    0
+##   Solkiki                                  0   0    0  0    0   0    2  0    0
+##   Solomons Gold                            0   0    0  0    0   0    0  0    2
+##   Solstice                                 0   0    0  0    0   0    0  3    3
+##   Soma                                     0   0    0  0    0   0    2  2    7
+##   Somerville                               0   0    0  0    0   0    0  0    1
+##   Soul                                     0   0    0  0    0   0    0  0    3
+##   Spagnvola                                0   0    0  0    0   0    0  2    1
+##   Spencer                                  0   0    0  0    0   0    2  0    0
+##   Sprungli (Felchlin)                      0   0    0  0    0   0    0  1    0
+##   SRSLY                                    0   0    0  0    1   0    0  1    0
+##   Starchild                                0   0    0  0    0   0    0  5    0
+##   Stella (aka Bernrain)                    0   0    0  0    0   0    1  0    1
+##   Stone Grindz                             0   0    0  0    0   0    0  0    0
+##   StRita Supreme                           0   0    0  0    0   2    1  0    0
+##   Sublime Origins                          0   0    0  0    0   0    1  0    1
+##   Summerbird                               0   0    0  0    0   1    0  1    0
+##   Suruca Chocolate                         0   0    0  0    0   0    1  1    0
+##   Svenska Kakaobolaget                     0   0    0  0    0   0    1  0    0
+##   Szanto Tibor                             0   0    0  0    0   0    0  1    7
+##   Tabal                                    0   0    0  0    0   1    2  1    0
+##   Tablette (aka Vanillabeans)              0   0    0  0    0   0    1  1    2
+##   Tan Ban Skrati                           0   0    0  0    0   0    0  0    1
+##   Taza                                     0   0    0  0    0   0    1  2    1
+##   TCHO                                     0   0    0  1    0   3    2  1    1
+##   Tejas                                    0   0    0  1    0   0    3  4    4
+##   Terroir                                  0   0    0  0    0   0    1  0    2
+##   The Barn                                 0   0    0  0    0   0    0  1    0
+##   Theo                                     0   0    0  1    0   1    0  2    1
+##   Theobroma                                0   0    0  0    0   0    0  0    1
+##   Timo A. Meyer                            0   0    0  0    0   0    0  0    0
+##   To&#39;ak (Ecuatoriana)                      0   0    0  0    0   0    0  0    1
+##   Tobago Estate (Pralus)                   0   0    0  0    0   0    0  0    0
+##   Tocoti                                   0   0    0  0    0   0    1  2    0
+##   Treehouse                                0   0    0  0    0   0    0  1    0
+##   Tsara (Cinagra)                          0   0    0  0    0   0    0  0    0
+##   twenty-four blackbirds                   0   0    0  0    0   1    2  0    2
+##   Two Ravens                               0   0    0  0    0   0    0  1    0
+##   Un Dimanche A Paris                      0   0    0  0    0   0    0  0    0
+##   Uncouth                                  0   0    0  0    0   0    1  1    1
+##   Undone                                   0   0    0  0    0   0    1  1    0
+##   Upchurch                                 0   0    0  0    0   0    0  1    1
+##   Urzi                                     0   0    0  0    0   0    0  0    1
+##   Uto Pick                                 0   0    0  0    0   0    0  0    0
+##   Valrhona                                 0   1    0  0    0   2    1  3    3
+##   Vanleer (Barry Callebaut)                0   0    0  0    0   1    1  0    0
+##   Vao Vao (Chocolaterie Robert)            0   0    0  0    0   0    3  2    1
+##   Vicuna                                   0   0    0  0    0   0    0  0    2
+##   Videri                                   0   0    0  0    0   0    0  0    2
+##   Vietcacao (A. Morin)                     0   0    0  0    0   0    0  0    0
+##   Vintage Plantations                      0   0    0  0    0   0    0  1    0
+##   Vintage Plantations (Tulicorp)           0   0    0  2    0   0    0  2    0
+##   Violet Sky                               0   0    0  0    0   0    2  2    1
+##   Vivra                                    0   0    0  0    0   2    0  1    0
+##   Wellington Chocolate Factory             0   0    0  0    0   0    0  0    0
+##   Whittakers                               0   0    0  0    0   1    0  0    0
+##   Wilkie&#39;s Organic                         0   0    0  0    0   1    2  0    1
+##   Willie&#39;s Cacao                           0   0    0  0    1   0    0  3    1
+##   Wm                                       0   0    0  0    0   0    0  1    0
+##   Woodblock                                0   0    0  0    0   1    0  2    2
+##   Xocolat                                  0   0    0  0    0   0    0  1    0
+##   Xocolla                                  0   0    0  0    0   1    1  0    0
+##   Zak&#39;s                                    0   0    0  0    0   0    0  2    3
+##   Zart Pralinen                            0   0    0  0    0   0    2  1    0
+##   Zokoko                                   0   0    0  0    0   0    0  0    1
+##   Zotter                                   0   0    0  0    0   0    1  5    3
+##                                          
+##                                           3.5 3.75  4  5
+##   A. Morin                                  6    4  3  0
+##   Acalli                                    0    2  0  0
+##   Adi aka Fijiana (Easy In Ltd)             2    0  0  0
+##   Aequare (Gianduja)                        0    0  0  0
+##   Ah Cacao                                  0    0  0  0
+##   Akesson&#39;s (Pralus)                        0    1  0  0
+##   Alain Ducasse                             1    0  0  0
+##   Alexandre                                 4    0  0  0
+##   Altus aka Cao Artisan                     0    0  0  0
+##   Amano                                     1    2  2  0
+##   Amatller (Simon Coll)                     0    0  0  0
+##   Amazing Cacao                             1    0  0  0
+##   Amazona                                   1    0  0  0
+##   Ambrosia                                  1    0  0  0
+##   Amedei                                    3    2  4  2
+##   AMMA                                      0    2  1  0
+##   Anahata                                   0    0  0  0
+##   Animas                                    1    0  0  0
+##   Ara                                       0    0  0  0
+##   Arete                                     8    5  3  0
+##   Artisan du Chocolat                       1    3  1  0
+##   Artisan du Chocolat (Casa Luker)          0    0  0  0
+##   Askinosie                                 0    4  0  0
+##   Bahen &amp; Co.                               1    0  0  0
+##   Bakau                                     1    0  0  0
+##   Bar Au Chocolat                           4    1  1  0
+##   Baravelli&#39;s                               0    0  0  0
+##   Batch                                     1    1  0  0
+##   Beau Cacao                                0    0  0  0
+##   Beehive                                   0    0  0  0
+##   Belcolade                                 1    0  0  0
+##   Bellflower                                2    0  0  0
+##   Belyzium                                  1    0  0  0
+##   Benoit Nihant                             3    1  2  0
+##   Bernachon                                 0    0  0  0
+##   Beschle (Felchlin)                        3    0  1  0
+##   Bisou                                     0    0  0  0
+##   Bittersweet Origins                       4    2  0  0
+##   Black Mountain                            0    0  0  0
+##   Black River (A. Morin)                    0    0  0  0
+##   Blanxart                                  1    0  0  0
+##   Blue Bandana                              3    1  0  0
+##   Boho                                      0    0  0  0
+##   Bonnat                                    6    3  8  0
+##   Bouga Cacao (Tulicorp)                    0    0  0  0
+##   Bowler Man                                0    0  0  0
+##   Brasstown                                 0    1  0  0
+##   Brasstown aka It&#39;s Chocolate              3    3  1  0
+##   Brazen                                    1    0  0  0
+##   Breeze Mill                               0    0  0  0
+##   Bright                                    2    0  0  0
+##   Britarev                                  0    0  0  0
+##   Bronx Grrl Chocolate                      0    0  0  0
+##   Burnt Fork Bend                           1    0  0  0
+##   C-Amaro                                   2    0  0  0
+##   Cacao Arabuco                             0    0  0  0
+##   Cacao Atlanta                             0    0  0  0
+##   Cacao Barry                               1    0  0  0
+##   Cacao de Origen                           2    1  0  0
+##   Cacao de Origin                           0    0  0  0
+##   Cacao Hunters                             2    3  0  0
+##   Cacao Market                              1    0  0  0
+##   Cacao Prieto                              0    2  0  0
+##   Cacao Sampaka                             4    1  3  0
+##   Cacao Store                               1    0  0  0
+##   Cacaosuyo (Theobroma Inversiones)         0    0  0  0
+##   Cacaoyere (Ecuatoriana)                   2    0  0  0
+##   Callebaut                                 0    0  0  0
+##   Cao                                       0    0  0  0
+##   Caoni (Tulicorp)                          1    0  0  0
+##   Captain Pembleton                         1    1  0  0
+##   Caribeans                                 2    0  0  0
+##   Carlotta Chocolat                         2    0  0  0
+##   Castronovo                                5    1  1  0
+##   Cello                                     0    0  0  0
+##   Cemoi                                     0    0  0  0
+##   Chaleur B                                 0    0  0  0
+##   Charm School                              0    0  0  0
+##   Chchukululu (Tulicorp)                    0    0  0  0
+##   Chequessett                               1    0  0  0
+##   Chloe Chocolat                            1    0  0  0
+##   Chocablog                                 0    0  0  0
+##   Choco Del Sol                             0    0  0  0
+##   Choco Dong                                1    0  0  0
+##   Chocola&#39;te                                0    2  0  0
+##   Chocolarder                               0    0  0  0
+##   Chocolate Alchemist-Philly                0    0  0  0
+##   Chocolate Con Amor                        0    0  0  0
+##   Chocolate Conspiracy                      0    0  0  0
+##   Chocolate Makers                          1    1  0  0
+##   Chocolate Tree, The                       0    3  0  0
+##   Chocolats Privilege                       0    0  0  0
+##   ChocoReko                                 0    0  0  0
+##   Chocosol                                  0    0  0  0
+##   Chocovic                                  2    0  0  0
+##   Chocovivo                                 0    0  0  0
+##   Choklat                                   0    0  0  0
+##   Chokolat Elot (Girard)                    0    0  0  0
+##   Choocsol                                  0    0  0  0
+##   Christopher Morel (Felchlin)              0    1  0  0
+##   Chuao Chocolatier                         0    0  0  0
+##   Chuao Chocolatier (Pralus)                0    0  0  0
+##   Claudio Corallo                           0    1  1  0
+##   Cloudforest                               1    0  0  0
+##   Coleman &amp; Davis                           0    0  0  0
+##   Compania de Chocolate (Salgado)           0    1  0  0
+##   Condor                                    1    0  0  0
+##   Confluence                                0    0  0  0
+##   Coppeneur                                 3    3  0  0
+##   Cote d&#39; Or (Kraft)                        0    0  0  0
+##   Cravve                                    1    0  0  0
+##   Creo                                      0    1  0  0
+##   Daintree                                  0    0  0  0
+##   Dalloway                                  0    0  0  0
+##   Damson                                    1    0  0  0
+##   Dandelion                                 4    3  0  0
+##   Danta                                     1    2  1  0
+##   DAR                                       0    0  0  0
+##   Dark Forest                               0    0  0  0
+##   Davis                                     0    0  0  0
+##   De Mendes                                 2    0  0  0
+##   De Villiers                               0    0  0  0
+##   Dean and Deluca (Belcolade)               0    0  0  0
+##   Debauve &amp; Gallais (Michel Cluizel)        0    1  0  0
+##   Desbarres                                 0    0  0  0
+##   DeVries                                   2    0  0  0
+##   Dick Taylor                               3    3  0  0
+##   Doble &amp; Bignall                           1    0  0  0
+##   Dole (Guittard)                           0    1  0  0
+##   Dolfin (Belcolade)                        0    0  0  0
+##   Domori                                    6    5  3  0
+##   Dormouse                                  0    0  0  0
+##   Duffy&#39;s                                   4    5  1  0
+##   Dulcinea                                  0    0  0  0
+##   Durand                                    0    0  0  0
+##   Durci                                     2    0  1  0
+##   East Van Roasters                         1    1  0  0
+##   Eau de Rose                               0    0  0  0
+##   Eclat (Felchlin)                          0    0  0  0
+##   Edelmond                                  0    0  0  0
+##   El Ceibo                                  0    1  0  0
+##   El Rey                                    0    1  0  0
+##   Emerald Estate                            0    0  0  0
+##   Emily&#39;s                                   1    0  0  0
+##   ENNA                                      0    0  0  0
+##   Enric Rovira (Claudio Corallo)            0    0  0  0
+##   Erithaj (A. Morin)                        0    0  0  0
+##   Escazu                                    1    0  0  0
+##   Ethel&#39;s Artisan (Mars)                    0    0  0  0
+##   Ethereal                                  1    1  0  0
+##   Fearless (AMMA)                           0    0  0  0
+##   Feitoria Cacao                            0    0  0  0
+##   Felchlin                                  2    0  1  0
+##   Finca                                     0    0  0  0
+##   Forever Cacao                             0    0  0  0
+##   Forteza (Cortes)                          0    0  0  0
+##   Fossa                                     1    1  0  0
+##   Franceschi                                2    2  0  0
+##   Frederic Blondeel                         4    0  0  0
+##   French Broad                              6    0  0  0
+##   Fresco                                    8    2  4  0
+##   Fresh Coast                               1    1  0  0
+##   Fresh Coast aka Just Good Choc.           2    0  1  0
+##   Friis Holm                                1    1  0  0
+##   Friis Holm (Bonnat)                       4    1  0  0
+##   Fruition                                  0    3  1  0
+##   Garden Island                             0    0  0  0
+##   Georgia Ramon                             3    0  1  0
+##   Glennmade                                 1    0  0  0
+##   Goodnow Farms                             0    0  0  0
+##   Grand Place                               0    0  0  0
+##   Green &amp; Black&#39;s (ICAM)                    0    0  0  0
+##   Green Bean to Bar                         1    0  0  0
+##   Grenada Chocolate Co.                     0    0  0  0
+##   Guido Castagna                            0    0  0  0
+##   Guittard                                  7    1  0  0
+##   Habitual                                  1    0  0  0
+##   Hachez                                    0    0  0  0
+##   Hacienda El Castillo                      0    0  0  0
+##   Haigh                                     0    0  0  0
+##   Harper Macaw                              2    0  0  0
+##   Heilemann                                 0    0  0  0
+##   Heirloom Cacao Preservation (Brasstown)   0    0  0  0
+##   Heirloom Cacao Preservation (Fruition)    1    0  0  0
+##   Heirloom Cacao Preservation (Guittard)    1    2  0  0
+##   Heirloom Cacao Preservation (Manoa)       1    0  0  0
+##   Heirloom Cacao Preservation (Millcreek)   1    0  0  0
+##   Heirloom Cacao Preservation (Mindo)       1    0  0  0
+##   Heirloom Cacao Preservation (Zokoko)      0    1  1  0
+##   hello cocoa                               1    0  0  0
+##   hexx                                      0    0  0  0
+##   Hogarth                                   1    0  0  0
+##   Hoja Verde (Tulicorp)                     1    0  0  0
+##   Holy Cacao                                5    1  0  0
+##   Honest                                    0    0  0  0
+##   Hotel Chocolat                            0    0  1  0
+##   Hotel Chocolat (Coppeneur)                3    0  0  0
+##   Hummingbird                               2    2  0  0
+##   Idilio (Felchlin)                         1    4  4  0
+##   Indah                                     0    0  0  0
+##   Indaphoria                                0    0  0  0
+##   Indi                                      0    0  0  0
+##   INDI                                      0    0  0  0
+##   iQ Chocolate                              0    0  0  0
+##   Isidro                                    1    0  0  0
+##   Izard                                     1    0  0  0
+##   Jacque Torres                             0    0  0  0
+##   Johnny Iuzzini                            4    1  0  0
+##   Jordis                                    0    0  0  0
+##   K&#39;ul                                      0    2  0  0
+##   Kah Kow                                   1    0  0  0
+##   Kakao                                     0    1  0  0
+##   Kallari (Ecuatoriana)                     1    0  0  0
+##   Kaoka (Cemoi)                             0    0  0  0
+##   Kerchner                                  0    1  0  0
+##   Ki&#39; Xocolatl                              0    0  0  0
+##   Kiskadee                                  0    0  0  0
+##   Krak                                      0    0  0  0
+##   Kto                                       0    0  0  0
+##   Kyya                                      0    0  0  0
+##   L&#39;Amourette                               1    0  0  0
+##   L.A. Burdick (Felchlin)                   1    3  1  0
+##   La Chocolaterie Nanairo                   0    0  0  0
+##   La Maison du Chocolat (Valrhona)          4    1  0  0
+##   La Oroquidea                              0    0  0  0
+##   La Pepa de Oro                            0    0  0  0
+##   Laia aka Chat-Noir                        1    1  0  0
+##   Lajedo do Ouro                            1    0  0  0
+##   Lake Champlain (Callebaut)                0    0  0  0
+##   Landmark (Amano)                          0    1  0  0
+##   Letterpress                               4    0  1  0
+##   Levy                                      1    0  0  0
+##   Lilla                                     0    0  0  0
+##   Lillie Belle                              3    1  0  0
+##   Lindt &amp; Sprungli                          0    0  0  0
+##   Loiza                                     0    0  0  0
+##   Lonohana                                  1    2  0  0
+##   Love Bar                                  0    0  0  0
+##   Luisa Abram                               0    0  0  0
+##   Luker                                     1    0  0  0
+##   Machu Picchu Trading Co.                  0    0  0  0
+##   Madecasse (Cinagra)                       2    1  1  0
+##   Madre                                     3    0  0  0
+##   Maglio                                    0    1  0  0
+##   Majani                                    0    0  0  0
+##   Malagasy (Chocolaterie Robert)            1    0  0  0
+##   Malagos                                   1    0  0  0
+##   Malie Kai (Guittard)                      1    0  0  0
+##   Malmo                                     0    0  0  0
+##   Mana                                      0    1  0  0
+##   Manifesto Cacao                           0    0  0  0
+##   Manoa                                     1    2  0  0
+##   Manufaktura Czekolady                     3    2  0  0
+##   Map Chocolate                             6    0  0  0
+##   Marana                                    0    0  0  0
+##   Marigold&#39;s Finest                         0    0  0  0
+##   Marou                                     7    1  0  0
+##   Mars                                      1    0  0  0
+##   Marsatta                                  0    0  0  0
+##   Martin Mayer                              0    0  0  0
+##   Mast Brothers                             3    2  0  0
+##   Matale                                    1    1  2  0
+##   Maverick                                  1    0  0  0
+##   Mayacama                                  0    0  0  0
+##   Meadowlands                               1    0  0  0
+##   Menakao (aka Cinagra)                     0    0  0  0
+##   Mesocacao                                 2    0  0  0
+##   Metiisto                                  1    0  0  0
+##   Metropolitan                              1    0  0  0
+##   Michel Cluizel                            2    1  3  0
+##   Middlebury                                3    2  0  0
+##   Millcreek Cacao Roasters                  1    0  0  0
+##   Mindo                                     0    0  0  0
+##   Minimal                                   1    0  0  0
+##   Mirzam                                    2    0  0  0
+##   Mission                                   1    1  0  0
+##   Mita                                      0    0  0  0
+##   Moho                                      0    0  0  0
+##   Molucca                                   0    0  0  0
+##   Momotombo                                 0    0  0  0
+##   Monarque                                  1    0  0  0
+##   Monsieur Truffe                           0    0  0  0
+##   Montecristi                               2    0  0  0
+##   Muchomas (Mesocacao)                      2    0  0  0
+##   Mutari                                    0    0  0  0
+##   Naðve                                     0    0  0  0
+##   Nahua                                     0    0  0  0
+##   Naive                                     0    2  0  0
+##   Nanea                                     1    0  0  0
+##   Nathan Miller                             1    0  0  0
+##   Neuhaus (Callebaut)                       0    1  0  0
+##   Nibble                                    0    0  0  0
+##   Night Owl                                 1    0  0  0
+##   Noble Bean aka Jerjobo                    0    0  0  0
+##   Noir d&#39; Ebine                             0    0  0  0
+##   Nova Monda                                0    0  0  0
+##   Nuance                                    1    2  0  0
+##   Nugali                                    1    0  0  0
+##   Oakland Chocolate Co.                     0    0  0  0
+##   Obolo                                     0    2  0  0
+##   Ocelot                                    0    1  1  0
+##   Ocho                                      2    0  0  0
+##   Ohiyo                                     0    0  0  0
+##   Oialla by Bojessen (Malmo)                1    0  0  0
+##   Olive and Sinclair                        0    0  0  0
+##   Olivia                                    0    0  0  0
+##   Omanhene                                  0    0  0  0
+##   Omnom                                     1    1  0  0
+##   organicfair                               0    0  0  0
+##   Original Beans (Felchlin)                 0    1  0  0
+##   Original Hawaiin Chocolate Factory        0    0  0  0
+##   Orquidea                                  0    0  0  0
+##   Pacari                                    3    1  3  0
+##   Palette de Bine                           3    3  0  0
+##   Pangea                                    0    0  0  0
+##   Park 75                                   1    0  0  0
+##   Parliament                                2    0  0  0
+##   Pascha                                    0    0  0  0
+##   Patric                                    2    1  3  0
+##   Paul Young                                0    0  0  0
+##   Peppalo                                   0    0  0  0
+##   Pierre Marcolini                          1    2  4  0
+##   Pinellas                                  0    0  0  0
+##   Pitch Dark                                1    0  0  0
+##   Pomm (aka Dead Dog)                       0    0  0  0
+##   Potomac                                   2    3  0  0
+##   Pralus                                    9    1  3  0
+##   Pump Street Bakery                        3    1  0  0
+##   Pura Delizia                              2    1  0  0
+##   Q Chocolate                               1    0  0  0
+##   Quetzalli (Wolter)                        0    0  0  0
+##   Raaka                                     1    0  0  0
+##   Rain Republic                             0    0  0  0
+##   Rancho San Jacinto                        0    0  0  0
+##   Ranger                                    1    0  0  0
+##   Raoul Boulanger                           0    0  0  0
+##   Raw Cocoa                                 0    0  0  0
+##   Republica del Cacao (aka Confecta)        1    1  0  0
+##   Ritual                                    4    3  1  0
+##   Roasting Masters                          0    0  0  0
+##   Robert (aka Chocolaterie Robert)          0    0  0  0
+##   Rococo (Grenada Chocolate Co.)            1    0  0  0
+##   Rogue                                     3    6  1  0
+##   Rozsavolgyi                               2    1  0  0
+##   Ruket                                     0    0  0  0
+##   S.A.I.D.                                  3    0  0  0
+##   Sacred                                    0    0  0  0
+##   Salgado                                   4    0  0  0
+##   San Jose                                  0    0  0  0
+##   Santander (Compania Nacional)             0    0  1  0
+##   Santome                                   0    0  0  0
+##   Scharffen Berger                          2    5  2  0
+##   Seaforth                                  0    0  0  0
+##   Shark&#39;s                                   0    0  0  0
+##   Shark Mountain                            2    0  0  0
+##   Shattel                                   0    0  0  0
+##   Shattell                                  1    0  0  0
+##   Sibu                                      1    0  0  0
+##   Sibu Sura                                 0    0  0  0
+##   Silvio Bessone                            0    0  0  0
+##   Sirene                                    2    5  0  0
+##   Sjolinds                                  0    0  0  0
+##   Smooth Chocolator, The                    4    6  2  0
+##   Snake &amp; Butterfly                         0    0  0  0
+##   Soklet                                    0    0  0  0
+##   Sol Cacao                                 1    0  0  0
+##   Solkiki                                   0    0  0  0
+##   Solomons Gold                             0    0  0  0
+##   Solstice                                  1    0  0  0
+##   Soma                                     13   13 10  0
+##   Somerville                                1    0  0  0
+##   Soul                                      3    0  0  0
+##   Spagnvola                                 0    0  0  0
+##   Spencer                                   2    3  0  0
+##   Sprungli (Felchlin)                       0    0  0  0
+##   SRSLY                                     0    0  0  0
+##   Starchild                                 0    0  0  0
+##   Stella (aka Bernrain)                     0    0  0  0
+##   Stone Grindz                              2    0  0  0
+##   StRita Supreme                            0    0  0  0
+##   Sublime Origins                           0    0  0  0
+##   Summerbird                                0    0  0  0
+##   Suruca Chocolate                          0    0  0  0
+##   Svenska Kakaobolaget                      0    0  0  0
+##   Szanto Tibor                              4    3  0  0
+##   Tabal                                     0    0  0  0
+##   Tablette (aka Vanillabeans)               0    0  0  0
+##   Tan Ban Skrati                            0    0  0  0
+##   Taza                                      0    0  0  0
+##   TCHO                                      0    0  0  0
+##   Tejas                                     2    0  0  0
+##   Terroir                                   1    5  0  0
+##   The Barn                                  0    0  0  0
+##   Theo                                      1    0  0  0
+##   Theobroma                                 0    0  0  0
+##   Timo A. Meyer                             0    1  0  0
+##   To&#39;ak (Ecuatoriana)                       0    0  0  0
+##   Tobago Estate (Pralus)                    0    0  1  0
+##   Tocoti                                    0    0  0  0
+##   Treehouse                                 0    0  0  0
+##   Tsara (Cinagra)                           1    0  0  0
+##   twenty-four blackbirds                    2    0  0  0
+##   Two Ravens                                0    0  0  0
+##   Un Dimanche A Paris                       0    1  0  0
+##   Uncouth                                   0    0  0  0
+##   Undone                                    0    0  0  0
+##   Upchurch                                  0    0  0  0
+##   Urzi                                      0    0  0  0
+##   Uto Pick                                  0    1  0  0
+##   Valrhona                                  4    3  5  0
+##   Vanleer (Barry Callebaut)                 0    0  0  0
+##   Vao Vao (Chocolaterie Robert)             0    0  0  0
+##   Vicuna                                    0    0  0  0
+##   Videri                                    2    1  0  0
+##   Vietcacao (A. Morin)                      1    0  0  0
+##   Vintage Plantations                       0    0  0  0
+##   Vintage Plantations (Tulicorp)            0    0  0  0
+##   Violet Sky                                0    0  0  0
+##   Vivra                                     0    0  0  0
+##   Wellington Chocolate Factory              2    0  0  0
+##   Whittakers                                0    0  0  0
+##   Wilkie&#39;s Organic                          0    0  0  0
+##   Willie&#39;s Cacao                            1    1  1  0
+##   Wm                                        1    1  0  0
+##   Woodblock                                 2    0  1  0
+##   Xocolat                                   0    0  0  0
+##   Xocolla                                   0    0  0  0
+##   Zak&#39;s                                     1    0  0  0
+##   Zart Pralinen                             3    0  0  0
+##   Zokoko                                    2    2  0  0
+##   Zotter                                    5    4  0  0</code></pre>
+<p>based on the table we see that valrhona and soltice have a hogh rating as they have a lot of ratings in the higher portion of the ratings table</p>
 
 
 
