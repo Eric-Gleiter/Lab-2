@@ -1,6 +1,6 @@
 ---
 title: "Lab 2"
-author: "Eric Gleiter: Github- Eric-Gleiter"
+author: "Eric Gleiter: Git-hub- Eric-Gleiter"
 date: "2/3/2020"
 output: html_document
 ---
@@ -27,20 +27,18 @@ There are 1852 chocolate bars that have been rated
 Question 2)
 ```{r}
 counts<-table(choco$Review.Date)
-plot(date,ratings)
 barplot(counts)
 
 ```
 The number of ratings increased with year up until 2016 when it started to drop. 
 
-Question 3)
 
 Question 3
 ```{r}
 counts <- table(choco$Company.Location, choco$Rating)
 counts
 ```
-The top three countries are The USA, Canada, and France, then looking at the table we can see all three countires have the most ratings at 3.5 and the a "normalish" spread about that point. Except for the us is has two peaks in its data, it also has the most data points which would be the cause.
+The top three countries are The USA, Canada, and France, then looking at the table we can see all three countries have the most ratings at 3.5 and the a "normalish" spread about that point. Except for the us is has two peaks in its data, it also has the most data points which would be the cause.
 
 Question 4)
 Which company produces the standard highest rated chocolate?
@@ -50,4 +48,8 @@ Question 5)
 counts <- table(choco$Company, choco$Rating)
 counts
 ```
-based on the table we see that valrhona and soltice have a hogh rating as they have a lot of ratings in the higher portion of the ratings table 
+based on the table we see that valrhona and soltice have a high rating as they have a lot of ratings in the higher portion of the ratings table 
+
+Question 6)
+
+The workflow is different from what I am used too. We had an issue with conflicts and not knowing how to resolve them. I feel like there is a learning curve to working with git but the ability to both have access and modify files without worrying that you work will be overridden is very nice. After we become more experienced with git. I process of commiting, pushing and pulling to keep everything up to date will be very intuitive. Our workflow specifically was to push after every completed question then a pull to keep our documents in sync. Without being able to communicate this would have been difficult.
