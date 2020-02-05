@@ -10,7 +10,7 @@ choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
 head(choco)
 ```
 
-Qeustion 1) 
+Question 1) 
 ```{r}
 date <- choco$Review.Date
 ratings <- choco$Rating
@@ -20,3 +20,11 @@ numChoco <- length(ratings)
 numChoco
 ```
 There are 1852 chocolate bars that have been rated
+Question 2)
+```{r}
+counts<-table(choco$Review.Date)
+plot(date,ratings)
+barplot(counts)
+
+```
+The number of ratings increased with year up until 2016 when it started to drop. 
