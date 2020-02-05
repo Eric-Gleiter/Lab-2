@@ -1,0 +1,18 @@
+---
+title: "Lab 2"
+author: "Eric Gleiter: Github- Eric-Gleiter"
+date: "2/3/2020"
+output: html_document
+---
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+
+Question 1)
+```{r}
+ratings <- choco$Rating
+hist(ratings)
+```
+The ratings are centered around 3 with a skew no ratings at five making the plot slightly skewed.
