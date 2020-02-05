@@ -16,3 +16,10 @@ ratings <- choco$Rating
 hist(ratings)
 ```
 The ratings are centered around 3 with a skew no ratings at five making the plot slightly skewed.
+
+Question 2) 
+```{r}
+cocoPercent <- choco$Cocoa.Pct
+plot(cocoPercent,ratings)
+```
+Looking at the scatterplot and not doing any advanced analysis there doesnt not appear to be any trend in the data, this means that there is not a connection between ratings and coco percent
