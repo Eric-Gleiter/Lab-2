@@ -1,0 +1,22 @@
+---
+title: "Lab 2"
+author: "Eric Gleiter: Github- Eric-Gleiter"
+date: "2/3/2020"
+output: html_document
+---
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+
+Qeustion 1) 
+```{r}
+date <- choco$Review.Date
+ratings <- choco$Rating
+locations <- choco$Company.Location
+
+numChoco <- length(ratings)
+numChoco
+```
+There are 1852 chocolate bars that have been rated
